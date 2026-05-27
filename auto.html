@@ -20,16 +20,13 @@
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
-    padding: 48px 40px;
+    padding: 44px 36px;
     max-width: 420px;
     width: 100%;
     text-align: center;
   }
-  .dealer-name {
-    font-size: 13px; font-weight: 600; color: #999;
-    text-transform: uppercase; letter-spacing: 1.5px;
-    margin-bottom: 32px;
-  }
+  .logo { margin-bottom: 28px; }
+  .logo img { height: 60px; width: auto; }
   .vehicle-name {
     font-size: clamp(22px, 5vw, 30px);
     font-weight: 700;
@@ -64,17 +61,16 @@
     font-size: 12px; color: #aaa;
   }
   .footer a { color: #888; text-decoration: none; }
-  .error {
-    color: #c0392b; font-size: 15px;
-    padding: 20px;
-  }
+  .error { color: #c0392b; font-size: 15px; padding: 20px; }
   .btn.hidden { display: none; }
 </style>
 </head>
 <body>
 
 <div class="card" id="card">
-  <div class="dealer-name">S. &amp; W. Automobily</div>
+  <div class="logo">
+    <img src="logo-black.png" alt="S. &amp; W. Automobily" id="logoImg">
+  </div>
 
   <div class="vehicle-name" id="vehicleName">Načítání...</div>
 
