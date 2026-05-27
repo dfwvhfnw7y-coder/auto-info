@@ -25,14 +25,10 @@
     width: 100%;
     text-align: center;
   }
-  .logo-bar {
-    display: flex; align-items: center; justify-content: center;
-    gap: 10px; margin-bottom: 32px;
-  }
-  .logo-bar svg { flex-shrink: 0; }
   .dealer-name {
-    font-size: 13px; font-weight: 600; color: #666;
+    font-size: 13px; font-weight: 600; color: #999;
     text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 32px;
   }
   .vehicle-name {
     font-size: clamp(22px, 5vw, 30px);
@@ -44,14 +40,14 @@
   .btn-group { display: flex; flex-direction: column; gap: 12px; }
   .btn {
     display: flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 16px 24px;
+    padding: 18px 24px;
     border-radius: 14px;
     text-decoration: none;
-    font-size: 16px; font-weight: 600;
+    font-size: 17px; font-weight: 600;
     transition: transform 0.15s, box-shadow 0.2s;
     cursor: pointer;
   }
-  .btn:active { transform: scale(0.98); }
+  .btn:active { transform: scale(0.97); }
   .btn-ad {
     background: #0d0d0d; color: #fff;
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
@@ -72,34 +68,21 @@
     color: #c0392b; font-size: 15px;
     padding: 20px;
   }
-  /* Hide buttons if link is missing */
   .btn.hidden { display: none; }
 </style>
 </head>
 <body>
 
 <div class="card" id="card">
-  <div class="logo-bar">
-    <!-- MB Star -->
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="18" r="17" stroke="#0d0d0d" stroke-width="1.5" fill="none"/>
-      <path d="M18 4 L21.5 15.5 L18 27 Z" fill="#0d0d0d"/>
-      <path d="M18 4 L14.5 15.5 L18 27 Z" fill="#333"/>
-      <path d="M18 27 L7 22 L14.5 15.5 Z" fill="#0d0d0d"/>
-      <path d="M18 27 L29 22 L21.5 15.5 Z" fill="#0d0d0d"/>
-      <path d="M7 22 L14.5 15.5 L18 4 Z" fill="#555"/>
-      <path d="M29 22 L21.5 15.5 L18 4 Z" fill="#555"/>
-    </svg>
-    <span class="dealer-name">S. &amp; W. Automobily</span>
-  </div>
+  <div class="dealer-name">S. &amp; W. Automobily</div>
 
   <div class="vehicle-name" id="vehicleName">Načítání...</div>
 
   <div class="btn-group">
-    <a class="btn btn-ad hidden" id="btnAd" target="_blank" rel="noopener">
+    <a class="btn btn-ad hidden" id="btnAd">
       <span class="btn-icon">🔗</span> Zobrazit inzerát
     </a>
-    <a class="btn btn-spec hidden" id="btnSpec" target="_blank" rel="noopener">
+    <a class="btn btn-spec hidden" id="btnSpec">
       <span class="btn-icon">📄</span> Zobrazit specifikaci
     </a>
   </div>
