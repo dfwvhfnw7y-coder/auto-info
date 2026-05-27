@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informace o vozidle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { height: 100%; }
+  body {
+    min-height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    background: #f5f5f5;
+    padding: 24px;
+    color: #1a1a1a;
+  }
+  .card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+    padding: 48px 40px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+  }
+  .logo-bar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; margin-bottom: 32px;
+  }
+  .logo-bar svg { flex-shrink: 0; }
+  .dealer-name {
+    font-size: 13px; font-weight: 600; color: #666;
+    text-transform: uppercase; letter-spacing: 1.5px;
+  }
+  .vehicle-name {
+    font-size: clamp(22px, 5vw, 30px);
+    font-weight: 700;
+    color: #0d0d0d;
+    margin-bottom: 36px;
+    line-height: 1.2;
+  }
+  .btn-group { display: flex; flex-direction: column; gap: 12px; }
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 16px; font-weight: 600;
+    transition: transform 0.15s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn-ad {
+    background: #0d0d0d; color: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .btn-ad:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+  .btn-spec {
+    background: #fff; color: #0d0d0d;
+    border: 2px solid #e0e0e0;
+  }
+  .btn-spec:hover { border-color: #bbb; background: #fafafa; }
+  .btn-icon { font-size: 20px; }
+  .footer {
+    margin-top: 36px;
+    font-size: 12px; color: #aaa;
+  }
+  .footer a { color: #888; text-decoration: none; }
+  .error {
+    color: #c0392b; font-size: 15px;
+    padding: 20px;
+  }
+  /* Hide buttons if link is missing */
+  .btn.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <div class="logo-bar">
+    <!-- MB Star -->
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="17" stroke="#0d0d0d" stroke-width="1.5" fill="none"/>
+      <path d="M18 4 L21.5 15.5 L18 27 Z" fill="#0d0d0d"/>
+      <path d="M18 4 L14.5 15.5 L18 27 Z" fill="#333"/>
+      <path d="M18 27 L7 22 L14.5 15.5 Z" fill="#0d0d0d"/>
+      <path d="M18 27 L29 22 L21.5 15.5 Z" fill="#0d0d0d"/>
+      <path d="M7 22 L14.5 15.5 L18 4 Z" fill="#555"/>
+      <path d="M29 22 L21.5 15.5 L18 4 Z" fill="#555"/>
+    </svg>
+    <span class="dealer-name">S. &amp; W. Automobily</span>
+  </div>
+
+  <div class="vehicle-name" id="vehicleName">Načítání...</div>
+
+  <div class="btn-group">
+    <a class="btn btn-ad hidden" id="btnAd" target="_blank" rel="noopener">
+      <span class="btn-icon">🔗</span> Zobrazit inzerát
+    </a>
+    <a class="btn btn-spec hidden" id="btnSpec" target="_blank" rel="noopener">
+      <span class="btn-icon">📄</span> Zobrazit specifikaci
+    </a>
+  </div>
+
+  <div class="footer">
+    <a href="https://www.sw-automobily.cz" target="_blank">www.sw-automobily.cz</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  const ad = params.get("ad");
+  const spec = params.get("spec");
+
+  const nameEl = document.getElementById("vehicleName");
+  const btnAd = document.getElementById("btnAd");
+  const btnSpec = document.getElementById("btnSpec");
+
+  if (!name && !ad && !spec) {
+    nameEl.innerHTML = '<span class="error">Chybí parametry v URL.<br>Použijte QR generátor pro vytvoření odkazu.</span>';
+    return;
+  }
+
+  nameEl.textContent = name || "Vozidlo";
+  document.title = (name || "Vozidlo") + " – S. & W. Automobily";
+
+  if (ad) {
+    btnAd.href = ad;
+    btnAd.classList.remove("hidden");
+  }
+  if (spec) {
+    btnSpec.href = spec;
+    btnSpec.classList.remove("hidden");
+  }
+})();
+</script>
+</body>
+</html>
