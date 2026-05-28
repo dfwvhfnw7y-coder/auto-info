@@ -56,10 +56,20 @@
   }
   .btn-spec:hover { border-color: #bbb; background: #fafafa; }
   .btn-icon { font-size: 20px; }
+  .phone-section {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+  .phone-label {
+    font-size: 14px; color: #888;
+    margin-bottom: 12px;
+  }
+  .phone-number { white-space: nowrap; }
   .btn-phone {
     background: #27AE60; color: #fff;
     box-shadow: 0 2px 12px rgba(39,174,96,0.25);
-    margin-top: 8px;
   }
   .btn-phone:hover { box-shadow: 0 4px 20px rgba(39,174,96,0.35); }
   .footer {
@@ -87,8 +97,12 @@
     <a class="btn btn-spec hidden" id="btnSpec">
       <span class="btn-icon">📄</span> Zobrazit specifikaci
     </a>
+  </div>
+
+  <div class="phone-section">
+    <p class="phone-label">V případě zájmu o koupi vozidla volejte</p>
     <a class="btn btn-phone" href="tel:+420737216571">
-      <span class="btn-icon">📞</span> Zavolat: +420 737 216 571
+      <span class="btn-icon">📞</span> <span class="phone-number">+420&nbsp;737&nbsp;216&nbsp;571</span>
     </a>
   </div>
 
